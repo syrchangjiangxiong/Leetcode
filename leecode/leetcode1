@@ -1,1 +1,47 @@
+# problem 1 in leetcode 
+#using python
+#3 version
 
+1.brute force
+just do two for to go through the list
+attention the use of for in list e.g list = [[i,j] for i in range(3) for j in range(2) if i + j == 2]
+
+2.use map
+#do one for to set a map and do another for to go through the map to find the result(can't work in python cause items in map can't have the same key)
+#Or we can do the map setting and searching for result in the same time( first check if an item in map match the result, if not, put into the map,else return)
+#like code below
+hash = {}
+for i in range(len(numbs)):
+  if target - nums[i] in hash:
+    return [hash[target-nums[i]], i]
+  hash[nums[i]] = i
+  
+ tips: 1.Should consider about two numbers are same and map in python must not have two key which are same to each other
+       So we should check if target - nums[i] are in map or not,  than put it into the map. In this way, we won't fail in situations like 
+       this:  target is 6   nums = [3,3]  cause after we put the first 3 into the map, when we meet the second 3, we will check if there
+       is 6 - 3 = 3 in the map which means we will not try to put a item which has a same key to one of the items in the map
+    
+                    
+                    
+                    
+
+                    
+                    
+                    
+        sum up: In this question we are asked to find two numbers that add up to meet a target, we go through the numbers and try to find
+        another number.  We use map here because we are trying to find something by using one item.  We can decrease the time using from O(n^2) to O(n)
+                    
+                    
+                    question: 使用map真的会节省时间吗？  使用map查找难道不需要遍历map中所有元素吗
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
